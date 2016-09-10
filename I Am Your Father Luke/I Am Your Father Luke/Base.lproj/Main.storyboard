@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="1200" y="169"/>
         </scene>
-        <!--View Controller-->
+        <!--Play Sounds View Controller-->
         <scene sceneID="JFz-F1-1NR">
             <objects>
-                <viewController id="Ppb-bN-0KT" sceneMemberID="viewController">
+                <viewController id="Ppb-bN-0KT" customClass="PlaySoundsViewController" customModule="I_Am_Your_Father_Luke" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KnQ-Cv-LdD"/>
                         <viewControllerLayoutGuide type="bottom" id="bwX-2h-FYT"/>
