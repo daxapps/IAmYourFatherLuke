@@ -36,9 +36,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBAction func recordAudio(sender: AnyObject) {
         print("record button pressed")
-//        recordingLabel.text = "Recording in Progress"
-//        stopRecordingButton.enabled = true
-//        recordButton.enabled = false
         configureUI(true)
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)[0] as String
@@ -49,7 +46,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-        
         try! audioRecorder = AVAudioRecorder(URL: filePath!, settings: [:])
         audioRecorder.delegate = self
         audioRecorder.meteringEnabled = true
@@ -59,11 +55,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBAction func stopRecording(sender: AnyObject) {
         print("stop recording button pressed")
-//        recordingLabel.text = "Tap to Record"
-//        stopRecordingButton.enabled = false
-//        recordButton.enabled = true
         configureUI(false)
-        
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setActive(false)
@@ -72,7 +64,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         print("AVAudioRecorder finished saving recording")
         if (flag) {
-        performSegueWithIdentifier("stopRecording", sender: audioRecorder.url)
+            performSegueWithIdentifier("stopRecording", sender: audioRecorder.url)
         } else {
             print("Saving of recording failed")
         }
